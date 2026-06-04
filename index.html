@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hotel Victoria — Prata, MG</title>
+  <meta name="description" content="Estacionamento amplo e café da manhã incluso. R. São Bento, 200, Prata-MG." />
+  <meta property="og:title" content="Hotel Victoria" />
+  <meta property="og:description" content="Estacionamento amplo e café da manhã incluso. R. São Bento, 200, Prata-MG." />
+  <meta property="og:image" content="https://img1.wsimg.com/isteam/ip/2eceddc3-e085-40a7-a505-241b643e0d1d/hotel_victoria.jpg" />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #f5f1e8;
+      --warm-white: #faf8f3;
+      --gold: #b8955a;
+      --gold-light: #d4b07a;
+      --dark: #1a1714;
+      --text: #3a3530;
+      --muted: #7a7068;
+      --border: #d9d0c0;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--warm-white);
+      color: var(--text);
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    /* ── TOP BAR ── */
+    .topbar {
+      background: var(--dark);
+      color: var(--border);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 8px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .topbar a { color: var(--gold-light); text-decoration: none; }
+    .topbar a:hover { color: #fff; }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250,248,243,0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      height: 70px;
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--dark);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--gold); }
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 400;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: var(--gold);
+      color: #fff;
+      padding: 10px 22px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      font-family: 'Jost', sans-serif;
+      font-weight: 400;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--dark); }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      height: 92vh;
+      min-height: 560px;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+    }
+    .hero-img {
+      position: absolute;
+      inset: 0;
+      background: url('https://img1.wsimg.com/isteam/ip/2eceddc3-e085-40a7-a505-241b643e0d1d/hotel_victoria.jpg') center/cover no-repeat;
+      transform: scale(1.06);
+      animation: heroZoom 14s ease-out forwards;
+    }
+    @keyframes heroZoom {
+      from { transform: scale(1.06); }
+      to   { transform: scale(1.00); }
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(20,16,12,0.75) 0%, rgba(20,16,12,0.1) 55%, transparent 100%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 60px 60px 70px;
+      max-width: 700px;
+      animation: fadeUp 1.2s 0.3s both;
+    }
+    @keyframes fadeUp {
+      from { opacity:0; transform: translateY(30px); }
+      to   { opacity:1; transform: translateY(0); }
+    }
+    .hero-eyebrow {
+      font-size: 0.7rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      font-weight: 300;
+      line-height: 1.05;
+      color: #fff;
+      margin-bottom: 24px;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+    .hero-badges {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .badge {
+      border: 1px solid rgba(255,255,255,0.35);
+      color: #fff;
+      padding: 8px 18px;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      backdrop-filter: blur(6px);
+    }
+
+    /* ── SECTION HEADER ── */
+    .section-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .section-eyebrow {
+      display: block;
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .section-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 300;
+      color: var(--dark);
+      line-height: 1.15;
+    }
+    .section-header p {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.7;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 0 auto 56px;
+      max-width: 200px;
+    }
+    .divider::before, .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+    .divider-diamond {
+      width: 6px; height: 6px;
+      background: var(--gold);
+      transform: rotate(45deg);
+    }
+
+    /* ── FEATURES ── */
+    .features {
+      padding: 100px 40px;
+      background: var(--cream);
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .feature-card {
+      background: var(--warm-white);
+      padding: 48px 40px;
+      position: relative;
+      overflow: hidden;
+      transition: box-shadow 0.3s;
+    }
+    .feature-card:hover { box-shadow: 0 8px 40px rgba(0,0,0,0.08); }
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 0;
+      background: var(--gold);
+      transition: height 0.4s ease;
+    }
+    .feature-card:hover::before { height: 100%; }
+    .feature-icon {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      display: block;
+    }
+    .feature-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      margin-bottom: 28px;
+      display: block;
+    }
+    .feature-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 12px;
+    }
+    .feature-card p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.75;
+    }
+
+    /* ── GALLERY ── */
+    .gallery {
+      padding: 100px 40px;
+      background: var(--warm-white);
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 260px 260px;
+      gap: 4px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .gallery-item {
+      overflow: hidden;
+      position: relative;
+    }
+    .gallery-item:first-child {
+      grid-row: 1 / 3;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+    .gallery-item:hover img { transform: scale(1.05); }
+
+    /* ── CONTACT ── */
+    .contact {
+      padding: 100px 40px;
+      background: var(--dark);
+      color: #fff;
+    }
+    .contact .section-eyebrow { color: var(--gold-light); }
+    .contact .section-header h2 { color: #fff; }
+    .contact .section-header p { color: rgba(255,255,255,0.5); }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      max-width: 900px;
+      margin: 0 auto;
+      align-items: start;
+    }
+    .contact-info { padding: 0; }
+    .contact-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      margin-bottom: 36px;
+    }
+    .contact-icon {
+      font-size: 1.2rem;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+    .contact-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 6px;
+    }
+    .contact-value {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.6;
+    }
+    .contact-value a { color: rgba(255,255,255,0.75); text-decoration: none; }
+    .contact-value a:hover { color: var(--gold-light); }
+    .contact-map {
+      border: 1px solid rgba(255,255,255,0.1);
+      overflow: hidden;
+    }
+    .contact-map iframe {
+      display: block;
+      width: 100%;
+      height: 300px;
+      filter: grayscale(100%) contrast(0.85) brightness(0.85);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #100e0b;
+      padding: 24px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    footer p {
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 0.08em;
+    }
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.5);
+    }
+    .footer-logo span { color: var(--gold); }
+
+    /* ── ROOMS CAROUSEL ── */
+    .rooms {
+      padding: 100px 40px;
+      background: var(--dark);
+      overflow: hidden;
+    }
+    .rooms .section-eyebrow { color: var(--gold-light); }
+    .rooms .section-header h2 { color: #fff; }
+    .rooms .section-header p { color: rgba(255,255,255,0.5); }
+    .rooms .divider::before, .rooms .divider::after { background: rgba(255,255,255,0.15); }
+
+    .carousel-wrap {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .carousel-track-outer {
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .carousel-track {
+      display: flex;
+      transition: transform 0.55s cubic-bezier(0.77,0,0.18,1);
+    }
+    .carousel-slide {
+      flex: 0 0 100%;
+      position: relative;
+      height: 500px;
+    }
+    .carousel-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .carousel-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 28px 36px;
+      background: linear-gradient(to top, rgba(20,16,12,0.85) 0%, transparent 100%);
+    }
+    .carousel-caption h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .carousel-caption p {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 0.06em;
+    }
+
+    /* Arrows */
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      background: rgba(20,16,12,0.7);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #fff;
+      width: 48px; height: 48px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: background 0.2s, border-color 0.2s;
+      backdrop-filter: blur(6px);
+    }
+    .carousel-btn:hover { background: var(--gold); border-color: var(--gold); }
+    .carousel-btn.prev { left: -24px; }
+    .carousel-btn.next { right: -24px; }
+
+    /* Dots */
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 24px;
+    }
+    .carousel-dot {
+      width: 28px; height: 2px;
+      background: rgba(255,255,255,0.25);
+      cursor: pointer;
+      transition: background 0.3s, width 0.3s;
+      border: none;
+    }
+    .carousel-dot.active {
+      background: var(--gold);
+      width: 48px;
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 768px) {
+      .topbar { display: none; }
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .hero-content { padding: 40px 24px 50px; }
+      .features, .gallery, .contact { padding: 70px 20px; }
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+      }
+      .gallery-item:first-child { grid-row: auto; }
+      .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+      footer { flex-direction: column; text-align: center; }
+      .rooms { padding: 70px 20px; }
+      .carousel-slide { height: 320px; }
+      .carousel-btn.prev { left: 4px; }
+      .carousel-btn.next { right: 4px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <span>📍 R. São Bento, 200 — Prata, MG</span>
+    <a href="tel:3434314001">☎ (34) 3431-4001</a>
+  </div>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="#">Hotel <span>Victoria</span></a>
+    <ul class="nav-links">
+      <li><a href="#diferenciais">Diferenciais</a></li>
+      <li><a href="#quartos">Quartos</a></li>
+      <li><a href="#galeria">Galeria</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+    <a class="nav-cta" href="tel:3434314001">Reservar</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-img"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Prata · Minas Gerais</p>
+      <h1>Bem-vindo ao<br><em>Hotel Victoria</em></h1>
+      <div class="hero-badges">
+        <span class="badge">☕ Café da manhã incluso</span>
+        <span class="badge">🚗 Estacionamento amplo</span>
+        <span class="badge">📍 Centro de Prata</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features" id="diferenciais">
+    <div class="section-header">
+      <span class="section-eyebrow">Por que escolher o Victoria</span>
+      <h2>Conforto e conveniência<br>em cada detalhe</h2>
+      <p>Oferecemos uma experiência acolhedora, com os serviços que você precisa para uma estadia tranquila.</p>
+    </div>
+    <div class="divider"><div class="divider-diamond"></div></div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <img
+          class="feature-img"
+          src="https://img1.wsimg.com/isteam/getty/814669722/:/cr=t:25%25,l:0%25,w:100%25,h:50%25/rs=w:600,h:300,cg:true"
+          alt="Café da manhã"
+          loading="lazy"
+        />
+        <h3>Café da manhã incluso</h3>
+        <p>Comece o dia com energia. O Hotel Victoria oferece café da manhã como cortesia para todos os hóspedes.</p>
+      </div>
+      <div class="feature-card">
+        <img
+          class="feature-img"
+          src="https://img1.wsimg.com/isteam/ip/2eceddc3-e085-40a7-a505-241b643e0d1d/2026-01-30.jpg/:/rs=w:600,h:300,cg:true,m/cr=w:600,h:300"
+          alt="Estacionamento"
+          loading="lazy"
+        />
+        <h3>Estacionamento amplo e seguro</h3>
+        <p>Espaço para carros e caminhões, com toda a segurança que você merece durante a sua hospedagem.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🏙️</span>
+        <h3>Localização central</h3>
+        <p>Situado na Rua São Bento, 200, no coração de Prata-MG — perto de tudo que a cidade tem a oferecer.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROOMS CAROUSEL -->
+  <section class="rooms" id="quartos">
+    <div class="section-header">
+      <span class="section-eyebrow">Acomodações</span>
+      <h2>Nossos Quartos</h2>
+      <p>Ambientes confortáveis pensados para o seu descanso e bem-estar.</p>
+    </div>
+    <div class="divider"><div class="divider-diamond"></div></div>
+
+    <div class="carousel-wrap">
+      <div class="carousel-track-outer">
+        <div class="carousel-track" id="carouselTrack">
+
+          <!-- SLIDE 1 — troque o src pela sua foto -->
+          <div class="carousel-slide">
+            <img src="room1.jpg" alt="Quarto 1" />
+            <div class="carousel-caption">
+              <h3>Quarto Standard</h3>
+              <p>Conforto e praticidade para a sua estadia</p>
+            </div>
+          </div>
+
+          <!-- SLIDE 2 — troque o src pela sua foto -->
+          <div class="carousel-slide">
+            <img src="room2.jpg" alt="Quarto 2" />
+            <div class="carousel-caption">
+              <h3>Quarto Duplo</h3>
+              <p>Espaço ideal para casais e duplas</p>
+            </div>
+          </div>
+
+          <!-- SLIDE 3 — troque o src pela sua foto -->
+          <div class="carousel-slide">
+            <img src="room3.jpg" alt="Quarto 3" />
+            <div class="carousel-caption">
+              <h3>Quarto Superior</h3>
+              <p>Mais espaço e conforto para sua viagem</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <button class="carousel-btn prev" id="carouselPrev" aria-label="Anterior">&#8592;</button>
+      <button class="carousel-btn next" id="carouselNext" aria-label="Próximo">&#8594;</button>
+    </div>
+
+    <div class="carousel-dots" id="carouselDots">
+      <button class="carousel-dot active" data-index="0"></button>
+      <button class="carousel-dot" data-index="1"></button>
+      <button class="carousel-dot" data-index="2"></button>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery" id="galeria">
+    <div class="section-header">
+      <span class="section-eyebrow">Nossa estrutura</span>
+      <h2>Conheça o Hotel Victoria</h2>
+    </div>
+    <div class="divider"><div class="divider-diamond"></div></div>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="https://img1.wsimg.com/isteam/ip/2eceddc3-e085-40a7-a505-241b643e0d1d/hotel_victoria.jpg" alt="Hotel Victoria fachada" loading="lazy" />
+      </div>
+      <div class="gallery-item">
+        <img src="https://img1.wsimg.com/isteam/getty/814669722/:/cr=t:25%25,l:0%25,w:100%25,h:50%25/rs=w:600,h:300,cg:true" alt="Café da manhã" loading="lazy" />
+      </div>
+      <div class="gallery-item">
+        <img src="https://img1.wsimg.com/isteam/ip/2eceddc3-e085-40a7-a505-241b643e0d1d/2026-01-30.jpg/:/rs=w:600,h:300,cg:true,m/cr=w:600,h:300" alt="Estacionamento" loading="lazy" />
+      </div>
+      <div class="gallery-item">
+        <img src="https://img1.wsimg.com/isteam/ip/2eceddc3-e085-40a7-a505-241b643e0d1d/hotel_victoria.jpg/:/cr=t:0%25,l:0%25,w:100%25,h:100%25/rs=h:1000,cg:true" alt="Hotel Victoria" loading="lazy" />
+      </div>
+      <div class="gallery-item">
+        <img src="https://img1.wsimg.com/isteam/getty/814669722/:/cr=t:25%25,l:0%25,w:100%25,h:50%25/rs=w:600,h:300,cg:true" alt="Café" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contato">
+    <div class="section-header">
+      <span class="section-eyebrow">Fale conosco</span>
+      <h2>Entre em contato</h2>
+      <p>Estamos prontos para receber você. Faça sua reserva por telefone.</p>
+    </div>
+    <div class="divider" style="--border: rgba(255,255,255,0.15);">
+      <div class="divider-diamond"></div>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-row">
+          <span class="contact-icon">📍</span>
+          <div>
+            <p class="contact-label">Endereço</p>
+            <p class="contact-value">R. São Bento, 200 — Vila Juliana<br>Prata — MG, 38140-000, Brasil</p>
+          </div>
+        </div>
+        <div class="contact-row">
+          <span class="contact-icon">📞</span>
+          <div>
+            <p class="contact-label">Telefone</p>
+            <p class="contact-value"><a href="tel:3434314001">(34) 3431-4001</a></p>
+          </div>
+        </div>
+        <div class="contact-row">
+          <span class="contact-icon">☕</span>
+          <div>
+            <p class="contact-label">Diferenciais</p>
+            <p class="contact-value">Café da manhã incluso<br>Estacionamento amplo e seguro</p>
+          </div>
+        </div>
+        <a class="nav-cta" href="tel:3434314001" style="display:inline-block; margin-top:8px;">
+          Ligue agora e reserve
+        </a>
+      </div>
+      <div class="contact-map">
+        <iframe
+          title="Localização Hotel Victoria"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3752.0!2d-49.0!3d-19.1!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDA2JzAwLjAiUyA0OcKwMDAnMDAuMCJX!5e0!3m2!1spt-BR!2sbr!4v1680000000000!5m2!1spt-BR!2sbr"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-logo">Hotel <span>Victoria</span></span>
+    <p>© 2026 Hotel Victoria — Todos os direitos reservados</p>
+    <p>R. São Bento, 200 · Prata-MG</p>
+  </footer>
+
+  <script>
+    (function () {
+      const track  = document.getElementById('carouselTrack');
+      const dots   = document.querySelectorAll('.carousel-dot');
+      const total  = 3;
+      let current  = 0;
+      let timer;
+
+      function goTo(index) {
+        current = (index + total) % total;
+        track.style.transform = `translateX(-${current * 100}%)`;
+        dots.forEach((d, i) => d.classList.toggle('active', i === current));
+      }
+
+      function startAuto() {
+        timer = setInterval(() => goTo(current + 1), 5000);
+      }
+      function stopAuto() { clearInterval(timer); }
+
+      document.getElementById('carouselPrev').addEventListener('click', () => { stopAuto(); goTo(current - 1); startAuto(); });
+      document.getElementById('carouselNext').addEventListener('click', () => { stopAuto(); goTo(current + 1); startAuto(); });
+      dots.forEach(d => d.addEventListener('click', () => { stopAuto(); goTo(+d.dataset.index); startAuto(); }));
+
+      // Touch/swipe support
+      let startX = 0;
+      track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+      track.addEventListener('touchend', e => {
+        const diff = startX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 40) { stopAuto(); goTo(current + (diff > 0 ? 1 : -1)); startAuto(); }
+      });
+
+      startAuto();
+    })();
+  </script>
+
+</body>
+</html>
